@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="quoteApp">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+
+        <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Angular quote app</title>
+</head>
+<body ng-controller="appController as info">
+  <div class="ui container">
+    <div class="column" > 
+      <div class="ui vertical segment">
+          <h1>Developer Quotes</h1>
+      </div>
+
+    <span ng-hide='myquote'>
+      <div>
+           <h2>"First, solve the problem. Then, write the code."</h2>
+      </div>
+      <div class="ui vertical segment">
+           <h4>John Johnson</h4>
+      </div>
+    </span>
+
+    <span ng-show='myquote' class="ng-cloak">
+       <div>
+          <h2>"{{info.data.quote}}"</h2>
+      </div>
+      <div class="ui vertical segment">
+        <h4>{{info.data.author}}</h4>
+      </div>
+    </span>
+
+      <div class="ui vertical segment">
+           <button class="ui inverted button" 
+                   ng-click="info.getQuote();">
+                   Click for quote
+          </button>
+
+          <span ng-hide="info.data.quote.length > 140 || info.data.quote.length == 0">
+              <a ng-href="https://twitter.com/intent/tweet?text={{info.data.quote}} - {{info.data.author}}"target="_blank">
+              <button class="ui primary button">Tweet quote</button></a>
+          </span>
+      </div>
+   </div>
+  </div>
+   <script src="js/angular.min.js"></script>
+   <script src="js/app.js"></script>
+   <script src="js/controller/appController.js"></script>
+   <script src="js/service/quoteService.js"></script>
+</body>
+</html>
