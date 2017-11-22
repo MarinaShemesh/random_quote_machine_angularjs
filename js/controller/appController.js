@@ -1,8 +1,8 @@
      angular.module('quoteApp')
       .controller('appController', appController);
 
-       appController.$inject = ['quoteService'];
-         function appController(quoteService){
+       appController.$inject = ['quoteService', '$scope'];
+         function appController(quoteService, $scope){
             
             const vm = this;
 

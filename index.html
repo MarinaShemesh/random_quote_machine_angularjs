@@ -8,31 +8,36 @@
   <title>Angular quote app</title>
 </head>
 <body ng-controller="appController as info">
-  <div class="ui container">
-    <div class="column" > 
+ <div class="container">
+  <div class="ui center aligned grid">
+    <div class="column"> 
       <div class="ui vertical segment">
-          <h1>Developer Quotes</h1>
+          <h2>Developer Quotes</h2>
       </div>
 
-    <span ng-hide='myquote'>
+    <span ng-hide='info.myquote'>
       <div>
-           <h2>"First, solve the problem. Then, write the code."</h2>
+      <blockquote><h1 class="column">First, solve the problem. 
+                                     Then, write the code.
+      </h1></blockquote>
       </div>
+      <br>
       <div class="ui vertical segment">
            <h4>John Johnson</h4>
       </div>
     </span>
 
-    <span ng-show='myquote' class="ng-cloak">
-       <div>
-          <h2>"{{info.data.quote}}"</h2>
+    <span ng-show='info.myquote' class="ng-cloak">
+       <div class="column" id="box">
+          <h1>"{{info.data.quote}}"</h1>
       </div>
-      <div class="ui vertical segment">
+      <br>
+      <div class="column">
         <h4>{{info.data.author}}</h4>
       </div>
     </span>
-
-      <div class="ui vertical segment">
+      <br>
+      <div class="column">
            <button class="ui inverted button" 
                    ng-click="info.getQuote();">
                    Click for quote
@@ -43,6 +48,7 @@
               <button class="ui primary button">Tweet quote</button></a>
           </span>
       </div>
+    </div>
    </div>
   </div>
    <script src="js/angular.min.js"></script>
